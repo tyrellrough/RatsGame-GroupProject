@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WinLoseMenu">
+   <children>
+      <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <Text fill="WHITE" layoutX="303.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Lost...">
+               <font>
+                  <Font name="Segoe UI" size="66.0" />
+               </font>
+            </Text>
+            <Button layoutX="330.0" layoutY="300.0" mnemonicParsing="false" onAction="#backButton" prefHeight="51.0" prefWidth="241.0" text="Return To Menu" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

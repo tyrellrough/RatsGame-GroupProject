@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Board">
+   <children>
+      <AnchorPane layoutY="1.0" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="619.0">
+         <children>
+            <Canvas fx:id="boardCanvas" height="540.0" layoutX="31.0" layoutY="29.0" onDragDropped="#dragDropped" onDragOver="#boardDragOver" width="540.0" />
+            <Button fx:id="scrollUpButton" layoutX="31.0" mnemonicParsing="false" onAction="#scrollUp" prefHeight="28.0" prefWidth="540.0" text="▲" textFill="GREY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="scrollDownButton" layoutX="31.0" layoutY="570.0" mnemonicParsing="false" onAction="#scrollDown" prefHeight="28.0" prefWidth="540.0" text="▼" textFill="GREY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="scrollLeftButton" layoutX="1.0" layoutY="29.0" mnemonicParsing="false" onAction="#scrollLeft" prefHeight="540.0" prefWidth="28.0" text="◀" textFill="GREY">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="scrollRightButton" layoutX="573.0" layoutY="29.0" mnemonicParsing="false" onAction="#scrollRight" prefHeight="540.0" prefWidth="28.0" text="▶" textFill="GREY">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="629.0" prefHeight="600.0" prefWidth="272.0">
+         <children>
+            <BorderPane maxWidth="-Infinity" prefHeight="290.0" prefWidth="272.0">
+               <center>
+                  <Canvas fx:id="miniMapCanvas" height="250.0" width="250.0" BorderPane.alignment="CENTER" />
+               </center>
+               <top>
+                  <Pane prefHeight="35.0" prefWidth="272.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Text fx:id="scoreText" fill="WHITE" layoutX="65.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="currentLevelText" fill="WHITE" layoutX="227.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="9.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="174.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </top>
+            </BorderPane>
+            <GridPane alignment="CENTER" prefHeight="301.0" prefWidth="272.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="249.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="38.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Canvas fx:id="progressBarCanvas" height="300.0" width="25.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="287.0" prefWidth="290.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="148.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="152.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="152.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="152.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="deathRatImageView1" fitHeight="36.0" fitWidth="149.0" onDragDetected="#startDeathRatDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../Images/DeathRatEast.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="gasImageView1" fitHeight="36.0" fitWidth="150.0" onDragDetected="#startGasDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../Images/Gas.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="poisonImageView1" fitHeight="36.0" fitWidth="150.0" onDragDetected="#startPoisonDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../Images/Poison.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeMaleImageView1" fitHeight="36.0" fitWidth="150.0" onDragDetected="#startMaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../Images/SexChangeMale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeFemaleImageView1" fitHeight="36.0" fitWidth="150.0" onDragDetected="#startFemaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../Images/SexChangeFemale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sterilisationImageView1" fitHeight="36.0" fitWidth="150.0" onDragDetected="#startSterilisationDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                           <image>
+                              <Image url="@../Images/Sterilisation.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="bombImageView1" fitHeight="36.0" fitWidth="149.0" onDragDetected="#startBombDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+                           <image>
+                              <Image url="@../Images/Bomb.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="noEntryImageView1" fitHeight="36.0" fitWidth="150.0" onDragDetected="#startNoEntryDrag" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../Images/NoEntry.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="bombImageView2" fitHeight="36.0" fitWidth="149.0" layoutX="28.0" layoutY="10.0" onDragDetected="#startBombDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                           <image>
+                              <Image url="@../Images/Bomb.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="bombImageView3" fitHeight="36.0" fitWidth="149.0" layoutX="102.0" layoutY="10.0" onDragDetected="#startBombDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                           <image>
+                              <Image url="@../Images/Bomb.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="bombImageView4" fitHeight="36.0" fitWidth="149.0" layoutX="158.0" layoutY="10.0" onDragDetected="#startBombDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                           <image>
+                              <Image url="@../Images/Bomb.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="deathRatImageView2" fitHeight="36.0" fitWidth="149.0" layoutX="28.0" layoutY="46.0" onDragDetected="#startDeathRatDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../Images/DeathRatEast.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="deathRatImageView3" fitHeight="36.0" fitWidth="149.0" layoutX="28.0" layoutY="46.0" onDragDetected="#startDeathRatDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../Images/DeathRatEast.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="deathRatImageView4" fitHeight="36.0" fitWidth="149.0" layoutX="28.0" layoutY="46.0" onDragDetected="#startDeathRatDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../Images/DeathRatEast.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="gasImageView2" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="82.0" onDragDetected="#startGasDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../Images/Gas.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="gasImageView3" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="82.0" onDragDetected="#startGasDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../Images/Gas.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="gasImageView4" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="82.0" onDragDetected="#startGasDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../Images/Gas.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="noEntryImageView2" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="118.0" onDragDetected="#startNoEntryDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../Images/NoEntry.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="noEntryImageView3" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="118.0" onDragDetected="#startNoEntryDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../Images/NoEntry.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="noEntryImageView4" fitHeight="36.0" fitWidth="150.0" layoutX="82.0" layoutY="118.0" onDragDetected="#startNoEntryDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../Images/NoEntry.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="poisonImageView2" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="154.0" onDragDetected="#startPoisonDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../Images/Poison.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="poisonImageView3" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="154.0" onDragDetected="#startPoisonDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../Images/Poison.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="poisonImageView4" fitHeight="36.0" fitWidth="150.0" layoutX="158.0" layoutY="154.0" onDragDetected="#startPoisonDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../Images/Poison.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeMaleImageView2" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="190.0" onDragDetected="#startMaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../Images/SexChangeMale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeMaleImageView3" fitHeight="36.0" fitWidth="150.0" layoutX="82.0" layoutY="190.0" onDragDetected="#startMaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../Images/SexChangeMale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeMaleImageView4" fitHeight="36.0" fitWidth="150.0" layoutX="82.0" layoutY="190.0" onDragDetected="#startMaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../Images/SexChangeMale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeFemaleImageView2" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="226.0" onDragDetected="#startFemaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../Images/SexChangeFemale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeFemaleImageView3" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="226.0" onDragDetected="#startFemaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../Images/SexChangeFemale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sexChangeFemaleImageView4" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="226.0" onDragDetected="#startFemaleSexChangeDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../Images/SexChangeFemale.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sterilisationImageView2" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="262.0" onDragDetected="#startSterilisationDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                           <image>
+                              <Image url="@../Images/Sterilisation.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sterilisationImageView3" fitHeight="36.0" fitWidth="150.0" layoutX="28.0" layoutY="262.0" onDragDetected="#startSterilisationDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                           <image>
+                              <Image url="@../Images/Sterilisation.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="sterilisationImageView4" fitHeight="36.0" fitWidth="150.0" layoutX="82.0" layoutY="262.0" onDragDetected="#startSterilisationDrag" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                           <image>
+                              <Image url="@../Images/Sterilisation.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children></VBox>
+   </children>
+</Pane>
