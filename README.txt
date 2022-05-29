@@ -1,3 +1,5 @@
+This game was a group coursework project created by 8 people with varying contribution. We used gitHub for collaboration but this is a reupload with names removed at the request of a group member.
+
 Aim of the game:
 Remove rats from the board using items and stop them from multiplying. Too many rats causes a loss.
 
