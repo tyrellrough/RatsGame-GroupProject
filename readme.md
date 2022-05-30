@@ -9,6 +9,7 @@ Main features (non exhaustive):
 - Lots of unique items and level designs.
 - Minimap displaying the current level.
 - Music.
+- Save game and resume from save.
 
 NOTES:
 - We used Java 17, JavaFX 17, and Gson 2.8.2.
